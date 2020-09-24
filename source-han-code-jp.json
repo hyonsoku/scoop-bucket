@@ -1,0 +1,36 @@
+{
+    "homepage": "https://github.com/adobe-fonts/source-han-code-jp",
+    "description": "Japanese monospace font for programming",
+    "license": "OFL-1.1",
+    
+    "version": "2.011",
+    "url": "https://github.com/adobe-fonts/source-han-code-jp/archive/2.011R.zip",
+    "checkver": {
+        "url": "https://github.com/adobe-fonts/source-han-code-jp/releases/latest",
+        "re": "archive/(?<version>[\\d.]+)R.zip"
+    },
+    "autoupdate": {
+        "url": "https://github.com/adobe-fonts/source-han-code-jp/archive/$versionR.zip",
+        "extract_dir": "source-han-code-jp-$versionR"
+    },
+
+    "extract_dir": "source-han-code-jp-2.011R",
+    "installer": {
+        "script": "
+            Get-ChildItem $dir -filter '*.ttc' | ForEach-Object {
+                New-ItemProperty -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts' -Name $_.Name.Replace($_.Extension, ' (TrueType)') -Value $_.Name -Force | Out-Null
+                Copy-Item \"$dir\\$_\" -destination \"$env:windir\\Fonts\"
+            }
+        "
+    },
+    "uninstaller": {
+        "script": "
+            Get-ChildItem $dir -filter '*.ttc' | ForEach-Object {
+                Remove-ItemProperty -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts' -Name $_.Name.Replace($_.Extension, ' (TrueType)') -Force -ErrorAction SilentlyContinue
+                Remove-Item \"$env:windir\\Fonts\\$($_.Name)\" -Force -ErrorAction SilentlyContinue
+            }
+            Write-Host \"The 'Myrica' Font family has been uninstalled and will not be present after restarting your computer.\" -Foreground Magenta
+        "
+    }
+    
+}
