@@ -19,7 +19,7 @@
     "installer": {
         "script": "
             Get-ChildItem $dir\\OTC -filter '*.ttc' | ForEach-Object {
-                New-ItemProperty -Path '' -Name $_.Name.Replace($_.Extension, ' (TrueType)') -Value $_.Name -Force | Out-Null
+                New-ItemProperty -Path 'HKEY_CURRENT_USER\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Fonts' -Name $_.Name.Replace($_.Extension, ' (TrueType)') -Value $_.Name -Force | Out-Null
                 Copy-Item \"$_\" -destination \"$env:LocalAppData\\Microsoft\\Windows\\Fonts\"
             }
         "
@@ -27,7 +27,7 @@
     "uninstaller": {
         "script": "
             Get-ChildItem $dir\\OTC -filter '*.ttc' | ForEach-Object {
-                Remove-ItemProperty -Path '' -Name $_.Name.Replace($_.Extension, ' (TrueType)') -Force -ErrorAction SilentlyContinue
+                Remove-ItemProperty -Path 'HKEY_CURRENT_USER\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Fonts' -Name $_.Name.Replace($_.Extension, ' (TrueType)') -Force -ErrorAction SilentlyContinue
                 Remove-Item \"$env:LocalAppData\\Microsoft\\Windows\\Fonts\\$($_.Name)\" -Force -ErrorAction SilentlyContinue
             }
             Write-Host \"The 'Sourece Han Code JP' Font family has been uninstalled and will not be present after restarting your computer.\" -Foreground Magenta
