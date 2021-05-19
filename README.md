@@ -8,7 +8,7 @@ This repository is personal [scoop](https://scoop-docs.vercel.app/) bucket to in
 scoop bucket add my-bucket https://github.com/hyonsoku/scoop-bucket.git
 ```
 
-## Applications
+## Fonts
 
 |Name               |Description                                |
 |-------------------|-------------------------------------------|
