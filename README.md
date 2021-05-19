@@ -1,6 +1,6 @@
 # About
 
-scoopで対応していないアプリやフォントをサポートするための個人用Bucketです。
+This repository is personal [scoop](https://scoop-docs.vercel.app/) bucket to install fonts without administrator rights.
 
 ## Usage
 
