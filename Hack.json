@@ -13,7 +13,7 @@
         "url": "https://github.com/source-foundry/Hack-windows-installer/releases/download/v$version.zip",
         "extract_dir": "Hack-windows-installer-$version"
     },
-    "extract_dir": "Hack-windows-installer-$version",
+    "extract_dir": "Hack-windows-installer-1.6.0",
     "installer": {
         "script": [
             "Get-ChildItem $dir\\Hack_v3_003 -filter '*.ttf' | ForEach-Object {",
