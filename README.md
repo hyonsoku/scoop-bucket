@@ -13,4 +13,5 @@ scoop bucket add my-bucket https://github.com/hyonsoku/scoop-bucket.git
 |Name               |Description                                |
 |-------------------|-------------------------------------------|
 |Cascadia-Code      |Fonts for Powerline                        |
+|Hack               |A typeface designed for source code        |
 |source-han-code-jp |Japanese monospace font for programming    |
