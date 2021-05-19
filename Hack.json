@@ -1,0 +1,35 @@
+{
+    "homepage": "https://sourcefoundry.org/hack/",
+    "description": "A typeface designed for source code.",
+    "license": "MIT",
+
+    "version": "1.6.0",
+    "url": "https://github.com/source-foundry/Hack-windows-installer/archive/refs/tags/v1.6.0.zip",
+    "hash": "",
+    "checkver" : {
+        "github": "https://github.com/source-foundry/Hack-windows-installer/"
+    },
+    "autoupdate": {
+        "url": "https://github.com/source-foundry/Hack-windows-installer/releases/download/v$version.zip",
+        "extract_dir": "Hack-windows-installer-$version"
+    },
+    "extract_dir": "Hack-windows-installer-$version",
+    "installer": {
+        "script": [
+            "Get-ChildItem $dir\\Hack_v3_003 -filter '*.ttf' | ForEach-Object {",
+            "   $fontdir = \"$env:LocalAppData\\Microsoft\\Windows\\Fonts\"",
+            "   New-ItemProperty -Path 'HKCU:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Fonts' -Name $_.Name.Replace($_.Extension, ' (TrueType)') -Value \"$fontdir\\$($_.Name)\" -Force | Out-Null",
+            "   Copy-Item $_.Fullname -destination \"$fontdir\"",
+            "}"
+        ]
+    },
+    "uninstaller": {
+        "script": [
+            "Get-ChildItem $dir\\Hack_v3_003 -filter '*.otf' | ForEach-Object {",
+            "   $fontdir = \"$env:LocalAppData\\Microsoft\\Windows\\Fonts\"",
+            "   Remove-ItemProperty -Path 'HKCU:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Fonts' -Name $_.Name.Replace($_.Extension, ' (TrueType)') -Force -ErrorAction SilentlyContinue",
+            "   Remove-Item \"$fontdir\\$($_.Name)\" -Force -ErrorAction SilentlyContinue",
+            "}"
+        ]
+    }
+}
