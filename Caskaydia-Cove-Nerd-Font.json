@@ -11,9 +11,7 @@
     },
     "autoupdate": {
         "url": "https://github.com/ryanoasis/nerd-fonts//releases/download/v$version/CascadiaCode.zip",
-        "extract_dir": "CascadiaCode"
     },
-    "extract_dir": "CascadiaCode",
     "installer": {
         "script": [
             "Get-ChildItem $dir -filter '*.ttf' | ForEach-Object {",
