@@ -13,9 +13,9 @@
         "url": "https://github.com/ryanoasis/nerd-fonts//releases/download/v$version/CascadiaCode.zip",
     },
     "pre_install": [
-        "Write-Output Debugging",
         "$fontdir = \"$env:LocalAppData\\Microsoft\\Windows\\Fonts\"",
         "If(!(Test-Path $fontdir)) {",
+        "    Write-Output Debugging",
         "    New-Item -ItemType Directory -Path $fontdir",
         "}"
     ],
