@@ -19,7 +19,7 @@
             "    New-Item -ItemType Directory -Path $fontdir",
             "}"
         ]
-    }
+    },
     "installer": {
         "script": [
             "Get-ChildItem $dir -filter '*.ttf' | ForEach-Object {",
