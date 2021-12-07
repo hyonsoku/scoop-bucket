@@ -15,6 +15,12 @@
         "extract_dir": "source-han-code-jp-$versionR"
     },
 
+    "pre_install": [
+        "$fontdir = \"$env:LocalAppData\\Microsoft\\Windows\\Fonts\"",
+        "If(!(Test-Path $fontdir)) {",
+        "    New-Item -ItemType Directory -Path $fontdir",
+        "}"
+    ],
     "extract_dir": "source-han-code-jp-2.011R",
     "installer": {
         "script": [
