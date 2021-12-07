@@ -13,6 +13,12 @@
         "url": "https://github.com/source-foundry/Hack-windows-installer/releases/download/v$version.zip",
         "extract_dir": "Hack-windows-installer-$version"
     },
+    "pre_install": [
+        "$fontdir = \"$env:LocalAppData\\Microsoft\\Windows\\Fonts\"",
+        "If(!(Test-Path $fontdir)) {",
+        "    New-Item -ItemType Directory -Path $fontdir",
+        "}"
+    ],
     "extract_dir": "Hack-windows-installer-1.6.0",
     "installer": {
         "script": [
