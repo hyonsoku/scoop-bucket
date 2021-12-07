@@ -15,7 +15,6 @@
     "pre_install": [
         "$fontdir = \"$env:LocalAppData\\Microsoft\\Windows\\Fonts\"",
         "If(!(Test-Path $fontdir)) {",
-        "    Write-Output Debugging",
         "    New-Item -ItemType Directory -Path $fontdir",
         "}"
     ],
