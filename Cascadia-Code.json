@@ -10,8 +10,12 @@
     "autoupdate": {
         "url": "https://github.com/microsoft/cascadia-code/releases/download/v$version/CascadiaCode-$version.zip"
     },
-
-    
+    "pre_install": [
+        "$fontdir = \"$env:LocalAppData\\Microsoft\\Windows\\Fonts\"",
+        "If(!(Test-Path $fontdir)) {",
+        "    New-Item -ItemType Directory -Path $fontdir",
+        "}"
+    ],
     "installer": {
         "script": [
             "Get-ChildItem $dir\\ttf -filter '*.ttf' | ForEach-Object {",
