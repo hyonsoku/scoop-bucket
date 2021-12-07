@@ -16,7 +16,7 @@
         "script": [
             "$fontdir = \"$env:LocalAppData\\Microsoft\\Windows\\Fonts\"",
             "If(!(Test-Path $fontdir)) {",
-            "    New-Item -ItemType Directory -Path $fontdir"
+            "    New-Item -ItemType Directory -Path $fontdir",
             "}"
         ]
     }
